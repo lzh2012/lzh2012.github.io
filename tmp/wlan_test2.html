@@ -11,7 +11,7 @@
     <py-script>
         import socket
         serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        serversocket.setsockopt(SOL_SOCKET,SO_REUSEADDR,1)
+        serversocket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 
         port = 9000
         serversocket.bind(("127.0.0.1", port))
