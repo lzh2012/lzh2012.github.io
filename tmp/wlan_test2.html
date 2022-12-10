@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>welcome!</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <py-script>
+        import socket
+        serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        port = 9000
+        serversocket.bind(("127.0.0.1", port))
+        serversocket.listen()
+
+        while True:
+            # 建立客户端连接
+            clientsocket,addr = serversocket.accept()      
+
+            print("连接地址: %s" % str(addr))
+            msg='欢迎连接！'+ "\r\n"
+            cs.send(msg.encode('utf-8'))
+            while True:
+                aa=cs.recv(1024)
+                print("接收到:",aa.decode("utf-8"))
+            cs.close()
+    </py-script>
+</body>
+</html>
